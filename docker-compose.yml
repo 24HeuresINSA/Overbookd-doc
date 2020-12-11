@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+    doc:
+        build: .
+        restart: unless-stopped
+        ports:
+            - 3000:3000
+        environment: 
+            SITE: ${SITE}
+            WEBSITE_NAME: ${WEBSITE_NAME}
+            TEMPLATE: ${TEMPLATE}
