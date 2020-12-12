@@ -20,3 +20,7 @@ L'application web est construite avec [VueJS](https://vuejs.org/), un framework 
 ### Serveur d'authentification
 
 Le serveur d'authentification est un serveur [Keycloak](https://www.keycloak.org/), un outil de sécurisation open-source, sponsorisé par RedHat. Il permet l'authentification ainsi que la gestion des droits des utilisateurs.
+
+## Containerisation
+
+Project A est disponible soit avec le code source, en clonant les repository GitHub, soit avec les images Docker disponibles sur la page de [téléchargements](../downloads). Cette containerisation permet à la fois de séparer les bases de données de l'API et de Keycloak mais aussi de n'exposer que les ports nécessaires. Il est donc recommandé de passer par Docker pour lancer le projet.
