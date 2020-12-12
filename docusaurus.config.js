@@ -116,7 +116,7 @@ module.exports = {
   ],
   plugins: [
     ["docusaurus-plugin-openapi", {
-      openapiPath: require.resolve("./output.json"),
+      openapiPath: require.resolve("./project_a.json"),
     }],
   ]
 };

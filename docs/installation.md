@@ -5,16 +5,14 @@ title: Installer et lancer Project A
 
 ## Images Docker
 
-Pour installer et lancer Project A, récupérez les images Docker sur la [page de téléchargements](../downloads). Il vous suffit ensuite de lancer chaques image:
+Pour installer et lancer Project A, récupérez les images Docker sur la [page de téléchargements](../downloads). Il vous suffit ensuite de lancer chaque image:
 
-```bash
-docker run --publish 8000:2424 --detach project_a_<api|appweb|auth>:1.0
+```
+docker-compose up -d
 ```
 
-- `--publish 8000:2424` redirige le flux du port 8000 de la machine lançant le conteneur Docker vers le port 2424 du conteneur.
-- `--detach` permet au conteneur de tourner en arrière plan.
-
-Chaque application dans les conteneur écoute sur le port 2424. Il vous suffit ensuite de changer le port d'entrée de la machine, ici 8000.
+`docker-compose up` permet de lancer une application composée de plusieurs containers Docker. Il faut donc se placer dans chaque dossier `/api`, `/appweb` et executer la commande. `-d` permet de détacher l'application et ainsi de ne pas avoir de logs.
+Pour arreter l'application il faut executer la commande `docker-compose down`.
 
 ## Redirection du trafic
 
