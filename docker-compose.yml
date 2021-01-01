@@ -6,13 +6,25 @@ services:
         image: "traefik:v2.3"
         container_name: "traefik"
         command:
+        # TRAEFIK CONFIG
         #- "--log.level=DEBUG"
         - "--api.insecure=true"
+        # PROVIDERS
         - "--providers.docker=true"
         - "--providers.docker.exposedbydefault=false"
+        # ENTRYPOINTS
         - "--entrypoints.web.address=:80"
+        - "--entrypoints.websecure.address=:443"
+        - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
+        # SSL
+        - "--certificatesresolvers.traefikResolver.acme.email=t.bellanger34@gmail.com"
+        - "--certificatesresolvers.traefikResolver.acme.storage=acme.json"
+        - "--certificatesresolvers.traefikResolver.acme.tlschallenge=true"
+        - "--certificatesresolvers.traefikResolver.acme.httpchallenge=true"
+        - "--certificatesresolvers.traefikResolver.acme.httpchallenge.entrypoint=web"
         ports:
         - "80:80"
+        - "443:443"
         - "8080:8080"
         volumes:
         - "/var/run/docker.sock:/var/run/docker.sock:ro"
@@ -27,5 +39,7 @@ services:
         labels:
             - "traefik.enable=true"
             - "traefik.http.services.doc.loadbalancer.server.port=3001"
-            - "traefik.http.routers.doc-router.rule=Host(`localhost`) && PathPrefix(`/docs`)"
-            - "traefik.http.routers.doc-router.entrypoints=web"
+            - "traefik.http.routers.doc-router.rule=Host(`${HOSTNAME}`) && PathPrefix(`/docs`)"
+            - "traefik.http.routers.doc-router.entrypoints=websecure"
+            - "traefik.http.routers.doc-router.tls=true"
+            - "traefik.http.routers.blog.tls.certresolver=traefikResolver"
