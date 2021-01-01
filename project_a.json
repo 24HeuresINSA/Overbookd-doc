@@ -2900,6 +2900,21 @@
                         }
                     }
                 ],
+                "requestBody": {
+                    "required": true,
+                    "description": "Array of team ids",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Team"
+                                }
+                            }
+                        }
+
+                    }
+                },
                 "operationId": "updateUserTeams",
                 "responses": {
                     "200": {

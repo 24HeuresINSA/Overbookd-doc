@@ -1,12 +1,31 @@
 version: '3'
 
 services:
+
+    traefik:
+        image: "traefik:v2.3"
+        container_name: "traefik"
+        command:
+        #- "--log.level=DEBUG"
+        - "--api.insecure=true"
+        - "--providers.docker=true"
+        - "--providers.docker.exposedbydefault=false"
+        - "--entrypoints.web.address=:80"
+        ports:
+        - "80:80"
+        - "8080:8080"
+        volumes:
+        - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    
     doc:
         build: .
         restart: unless-stopped
-        ports:
-            - 3000:3000
         environment: 
             SITE: ${SITE}
             WEBSITE_NAME: ${WEBSITE_NAME}
             TEMPLATE: ${TEMPLATE}
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.services.doc.loadbalancer.server.port=3001"
+            - "traefik.http.routers.doc-router.rule=Host(`localhost`) && PathPrefix(`/docs`)"
+            - "traefik.http.routers.doc-router.entrypoints=web"
