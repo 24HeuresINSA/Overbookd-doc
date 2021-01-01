@@ -7,7 +7,8 @@ services:
         container_name: "traefik"
         command:
         # TRAEFIK CONFIG
-        #- "--log.level=DEBUG"
+        - "--log.level=DEBUG"
+        - "--log.filepath=/traefik.log"
         - "--api.insecure=true"
         # PROVIDERS
         - "--providers.docker=true"
@@ -28,6 +29,8 @@ services:
         - "8080:8080"
         volumes:
         - "/var/run/docker.sock:/var/run/docker.sock:ro"
+        - "/cert/acme.json:/acme.json"
+        - "./.log/traefik.log:/traefik.log"
     
     doc:
         build: .
@@ -42,4 +45,4 @@ services:
             - "traefik.http.routers.doc-router.rule=Host(`${HOSTNAME}`) && PathPrefix(`/docs`)"
             - "traefik.http.routers.doc-router.entrypoints=websecure"
             - "traefik.http.routers.doc-router.tls=true"
-            - "traefik.http.routers.blog.tls.certresolver=traefikResolver"
+            - "traefik.http.routers.doc-router.tls.certresolver=traefikResolver"
