@@ -12,6 +12,6 @@ COPY . .
 
 RUN npm run build
 
-EXPOSE 3000
+EXPOSE 3001
 
-CMD ["serve","--single","--listen","3000","build"]
+CMD ["node", "static_server.js"]

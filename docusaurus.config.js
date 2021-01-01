@@ -2,8 +2,8 @@ module.exports = {
   title: 'Project A',
   tagline: 'Event planner',
   url: 'https://orgassomakerify.debrej.fr/docs',
-  baseUrl: '/',
-  onBrokenLinks: 'throw',
+  baseUrl: '/docs/',
+  onBrokenLinks: 'ignore',
   favicon: 'img/favicon.ico',
   organizationName: '24HeuresINSA', // Usually your GitHub org/user name.
   projectName: 'project_a', // Usually your repo name.
