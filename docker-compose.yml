@@ -7,7 +7,7 @@ services:
         container_name: "traefik"
         command:
         # TRAEFIK CONFIG
-        - "--log.level=DEBUG"
+        - "--log.level=ERROR"
         - "--log.filepath=/traefik.log"
         - "--api.insecure=true"
         # PROVIDERS
