@@ -1,7 +1,9 @@
+config = require('dotenv').config()
+
 module.exports = {
   title: 'Project A',
   tagline: 'Event planner',
-  url: 'https://orgassomakerify.debrej.fr/docs',
+  url: 'https://orgassomakerify.debrej.fr/',
   baseUrl: '/docs/',
   onBrokenLinks: 'ignore',
   favicon: 'img/favicon.ico',
@@ -32,7 +34,6 @@ module.exports = {
           label: 'Téléchargements',
           position: 'left',
         },
-        {to: 'blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/24HeuresINSA',
           label: 'GitHub',
@@ -97,6 +98,10 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Project A Built with Docusaurus.`,
     },
+    algolia: {
+      apiKey: process.env.ALGOLIA_API_KEY,
+      indexName: process.env.ALGOLIA_INDEX_NAME
+    }
   },
   presets: [
     [
@@ -104,9 +109,6 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-        },
-        blog: {
-          showReadingTime: true,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -118,5 +120,6 @@ module.exports = {
     ["docusaurus-plugin-openapi", {
       openapiPath: require.resolve("./project_a.json"),
     }],
-  ]
+    "docusaurus2-dotenv",
+  ],
 };

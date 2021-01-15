@@ -1,6 +1,6 @@
 {
   "name": "project-a",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -8,7 +8,8 @@
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
-    "serve": "docusaurus serve"
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations"
   },
   "dependencies": {
     "@docusaurus/core": "^2.0.0-alpha.66",
@@ -16,7 +17,10 @@
     "@mdx-js/react": "^1.5.8",
     "clsx": "^1.1.1",
     "docusaurus-plugin-openapi": "^0.0.12",
+    "docusaurus2-dotenv": "^1.4.0",
+    "dotenv": "^8.2.0",
     "finalhandler": "^1.1.2",
+    "i18n": "^0.13.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "serve-static": "^1.14.1"
