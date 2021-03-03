@@ -30,6 +30,12 @@ module.exports = {
           position: "left",
         },
         {
+          to: "db/introduction",
+          activeBasePath: "db",
+          label: "Modèle de données",
+          position: "left"
+        },
+        {
           to: 'downloads',
           label: 'Téléchargements',
           position: 'left',
@@ -108,7 +114,7 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve('./sidebars/doc.js'),
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -117,6 +123,16 @@ module.exports = {
     ],
   ],
   plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'db',
+        path: 'db',
+        routeBasePath: 'db',
+        include: ['**/*.md', '**/*.mdx'],
+        sidebarPath: require.resolve('./sidebars/db.js'),
+      },
+    ],
     ["docusaurus-plugin-openapi", {
       openapiPath: require.resolve("./project_a.json"),
     }],

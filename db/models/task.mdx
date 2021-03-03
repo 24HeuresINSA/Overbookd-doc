@@ -1,0 +1,50 @@
+---
+id: task
+title: Tâche
+---
+
+import Required from "../components/Required.js";
+import Name from "../components/Name.js";
+import DefaultValue from "../components/DefaultValue.js";
+import ForeignKey from "../components/ForeignKey.js";
+
+Une tâche est une action faisant partie d'une activité.
+
+### Champs
+
+#### Signalétique
+
++ Si le champs est requis, il est signalé par <Required />
++ Si il a une valeur par défaut, il est signalé par <DefaultValue>valeur par défaut</DefaultValue>
++ Si un champs est une clé étrangère, elle est signalée par <ForeignKey to="shift" label="Créneau" /> 
+
+#### Attributs
+
+Nom | Type
+--- | ---
+<Name>name</Name>  <Required /> | string 
+<Name>description</Name>   | text("medium") 
+<Name>start_date</Name>  <Required /> | date 
+<Name>end_date</Name>  <Required /> | date
+<Name>activity_id</Name> <Required /> <ForeignKey to="activity" label="Activité" /> | integer
+<Name>supervisor_id</Name> <Required /> <ForeignKey to="user" label="Responsable" /> | integer
+<Name>team_id</Name> <Required /> <ForeignKey to="team" label="Equipe" /> | integer
+<Name>location_id</Name> <Required /> <ForeignKey to="location" label="Lieu" /> | integer
+
+### Exemple de réponse
+
+```json
+{
+  "id": 1,
+  "name": "Stocker le fromage",
+  "description": "on prend la liste de course et on achete ce qu\"il y a marqué",
+  "start_date": "2019-05-11T10:00:00.000Z",
+  "end_date": "2019-05-11T12:00:00.000Z",
+  "createdAt": "2021-03-03T21:59:21.000Z",
+  "updatedAt": "2021-03-03T21:59:21.000Z",
+  "supervisor_id": 2,
+  "team_id": 2,
+  "location_id": 2,
+  "activity_id": 1
+}
+```

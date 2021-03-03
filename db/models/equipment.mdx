@@ -1,0 +1,46 @@
+---
+id: equipment
+title: Equipement
+---
+
+import Required from "../components/Required.js";
+import Name from "../components/Name.js";
+import DefaultValue from "../components/DefaultValue.js";
+import ForeignKey from "../components/ForeignKey.js";
+
+Un équipement est un objet utilisé lors d'un évènement, que ce soit un balai ou un camion.
+
+### Champs
+
+#### Signalétique
+
++ Si le champs est requis, il est signalé par <Required />
++ Si il a une valeur par défaut, il est signalé par <DefaultValue>valeur par défaut</DefaultValue>
++ Si un champs est une clé étrangère, elle est signalée par <ForeignKey to="shift" label="Créneau" /> 
+
+#### Attributs
+
+Nom | Type
+--- | ---
+<Name>name</Name>  <Required /> | string 
+<Name>description</Name>   | text("medium") 
+<Name>quantity</Name>  <Required /> | integer
+<Name>equipment_type_id</Name> <Required /> <ForeignKey to="equipment_type" label="Type d'équipement" /> | integer
+<Name>pickup_location</Name> <Required /> <ForeignKey to="location" label="Lieu" /> | integer
+<Name>drop_location</Name> <Required /> <ForeignKey to="location" label="Lieu" /> | integer
+
+### Exemple de réponse
+
+```json
+{
+  "id": 1,
+  "name": "12m3",
+  "description": "un bien beau camion",
+  "quantity": 1,
+  "createdAt": "2021-03-03T21:59:21.000Z",
+  "updatedAt": "2021-03-03T21:59:21.000Z",
+  "equipment_type_id": 1,
+  "pickup_location": 1,
+  "drop_location": 3
+}
+```
