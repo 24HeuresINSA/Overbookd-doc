@@ -1,5 +1,5 @@
 module.exports = {
-  someSidebar: {
+  sidebarDoc: {
     "Project A": ['introduction', 'installation', 'deployment'],
     "API": ['api/using_api'],
     "Authentification": ['auth/authentication'],

@@ -1,25 +1,25 @@
 config = require('dotenv').config()
 
 module.exports = {
-  title: 'Project A',
+  title: 'Overbookd',
   tagline: 'Event planner',
-  url: 'https://orgassomakerify.debrej.fr/',
+  url: 'https://overbookd.24heures.org/',
   baseUrl: '/docs/',
   onBrokenLinks: 'ignore',
   favicon: 'img/favicon.ico',
-  organizationName: '24HeuresINSA', // Usually your GitHub org/user name.
-  projectName: 'project_a', // Usually your repo name.
+  organizationName: '24HeuresINSA',
+  projectName: 'overbookd',
   themeConfig: {
     navbar: {
-      title: 'Project A',
+      title: 'Overbookd',
       logo: {
-        alt: 'Project A Logo',
+        alt: 'Overbookd Logo',
         src: 'img/logo.svg',
       },
       items: [
         {
-          to: 'docs/introduction',
-          activeBasePath: 'docs',
+          to: 'overbookd/introduction',
+          activeBasePath: 'overbookd',
           label: 'Documentation',
           position: 'left',
         },
@@ -103,20 +103,25 @@ module.exports = {
       indexName: process.env.ALGOLIA_INDEX_NAME
     }
   },
-  presets: [
+  themes: [
     [
-      '@docusaurus/preset-classic',
+      '@docusaurus/theme-classic',
       {
-        docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-        },
-        theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
-      },
-    ],
+        customCss: require.resolve('./src/css/custom.css'),
+      }
+    ]
   ],
   plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'overbookd',
+        path: 'overbookd',
+        routeBasePath: 'overbookd',
+        include: ['**/*.md', '**/*.mdx'],
+        sidebarPath: require.resolve('./sidebars/overbookd.js'),
+      },
+    ],
     ["docusaurus-plugin-openapi", {
       openapiPath: require.resolve("./project_a.json"),
     }],
