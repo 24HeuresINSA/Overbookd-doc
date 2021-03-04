@@ -1,0 +1,42 @@
+---
+id: notification
+title: Notification
+---
+
+import Required from "../components/Required.js";
+import Name from "../components/Name.js";
+import DefaultValue from "../components/DefaultValue.js";
+import ForeignKey from "../components/ForeignKey.js";
+
+Une notification permet à un utilisateur de connaître les changements le concernant.
+
+### Champs
+
+#### Signalétique
+
++ Si le champs est requis, il est signalé par <Required />
++ Si il a une valeur par défaut, il est signalé par <DefaultValue>valeur par défaut</DefaultValue>
++ Si un champs est une clé étrangère, elle est signalée par <ForeignKey to="shift" label="Créneau" /> 
+
+#### Attributs
+
+Nom | Type
+--- | ---
+<Name>content</Name>  <Required /> | text("medium") 
+<Name>status</Name>  <Required /> | enum("unread", "read") <DefaultValue>unread</DefaultValue>
+<Name>user_id</Name> <ForeignKey to="user" label="Utilisateur" /> | integer
+<Name>team_id</Name> <ForeignKey to="team" label="Equipe" /> | integer
+
+### Exemple de réponse
+
+```json
+{
+        "id": 1,
+        "content": "Vous avez un nouveau message.",
+        "status": "unread",
+        "createdAt": "2021-03-03T21:59:21.000Z",
+        "updatedAt": "2021-03-03T21:59:21.000Z",
+        "user_id": 3,
+        "team_id": null
+    }
+```

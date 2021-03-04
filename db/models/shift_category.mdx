@@ -1,0 +1,34 @@
+---
+id: shift_category
+title: Catégorie de créneau
+---
+
+import Required from "../components/Required.js";
+import Name from "../components/Name.js";
+import DefaultValue from "../components/DefaultValue.js";
+
+Une catégorie de créneau permet de regrouper les créneaux.
+
+### Champs
+
+#### Signalétique
+
++ Si le champs est requis, il est signalé par <Required />.
++ Si il a une valeur par défaut, il est signalé par <DefaultValue>valeur par défaut</DefaultValue>
+
+#### Attributs
+
+Nom | Type
+--- | ---
+<Name>name</Name>  <Required /> | string
+
+### Exemple de réponse
+
+```json
+{
+  "id": 1,
+  "name": "post manif",
+  "createdAt": "2021-03-03T21:59:21.000Z",
+  "updatedAt": "2021-03-03T21:59:21.000Z"
+}
+```

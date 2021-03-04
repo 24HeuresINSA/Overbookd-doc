@@ -1,0 +1,72 @@
+---
+id: user
+title: Utilisateur
+---
+
+import Required from "../components/Required.js";
+import Name from "../components/Name.js";
+import DefaultValue from "../components/DefaultValue.js";
+import ForeignKey from "../components/ForeignKey.js";
+
+Un utilisateur peut aller du bénévole qui n'as accès qu'as son emploi du temps, jusqu'au super admin
+qui peut modifier l'entièreté d'Overbookd.
+### Champs
+
+#### Signalétique
+
++ Si le champs est requis, il est signalé par <Required />
++ Si il a une valeur par défaut, il est signalé par <DefaultValue>valeur par défaut</DefaultValue>
++ Si un champs est une clé étrangère, elle est signalée par <ForeignKey to="shift" label="Créneau" /> 
+
+#### Attributs
+
+Nom | Type
+--- | ---
+<Name>first_name</Name>  <Required /> | string 
+<Name>last_name</Name>  <Required /> | string 
+<Name>surname</Name>   | string 
+<Name>birthday</Name>   | dateonly 
+<Name>phone_number</Name>   | string(15) 
+<Name>email</Name>  <Required /> | string 
+<Name>licence_date</Name>   | date 
+<Name>licence_scan_url</Name>   | string 
+<Name>profile_pic_url</Name>   | string <DefaultValue>images/default_pic_url.jpg</DefaultValue>
+<Name>tshirt_size</Name>   | enum("xs", "s", "m", "l", "xl") 
+<Name>alcoholic_beverage_consumption</Name>  <Required /> | integer <DefaultValue>0</DefaultValue>
+<Name>food_and_beverage_consumption</Name>  <Required /> | integer <DefaultValue>0</DefaultValue>
+<Name>balance</Name>  <Required /> | decimal(6, 2) <DefaultValue>0</DefaultValue>
+<Name>comment</Name>   | text("medium") 
+<Name>experience</Name>   | text("medium") 
+<Name>incapacity</Name>   | text("medium") 
+<Name>validity_status</Name>  <Required /> | boolean <DefaultValue>false</DefaultValue>
+<Name>keycloak_user_id</Name>  <Required /> | string <DefaultValue>null</DefaultValue>
+<Name>specialty_id</Name> <Required /> <ForeignKey to="specialty" label="Spécialité" /> | integer
+
+### Exemple de réponse
+
+```json
+{
+  "id": 1,
+  "first_name": "Phyllis",
+  "last_name": "Dejesus",
+  "surname": "Bass",
+  "birthday": "1998-02-17",
+  "phone_number": "08 34 50 43 52",
+  "email": "phyllis.dejesus@cosmetex.us",
+  "licence_date": "2020-05-01T17:32:18.000Z",
+  "licence_scan_url": null,
+  "profile_pic_url": null,
+  "tshirt_size": "S",
+  "alcoholic_beverage_consumption": 2,
+  "food_and_beverage_consumption": 4,
+  "balance": "17.28",
+  "comment": null,
+  "experience": null,
+  "incapacity": null,
+  "validity_status": false,
+  "keycloak_user_id": "null",
+  "createdAt": "2021-03-03T21:59:21.000Z",
+  "updatedAt": "2021-03-03T21:59:21.000Z",
+  "specialty_id": 1
+}
+```

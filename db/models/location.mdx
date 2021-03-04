@@ -1,0 +1,40 @@
+---
+id: location
+title: Lieu
+---
+
+import Required from "../components/Required.js";
+import Name from "../components/Name.js";
+import DefaultValue from "../components/DefaultValue.js";
+
+Un lieu sur Overbookd permet de situer une activité, une tache.
+
+### Champs
+
+#### Signalétique
+
++ Si le champs est requis, il est signalé par <Required />.
++ Si il a une valeur par défaut, il est signalé par <DefaultValue>valeur par défaut</DefaultValue>
+
+#### Attributs
+
+Nom | Type
+--- | ---
+<Name>name</Name>  <Required /> | string 
+<Name>description</Name>   | text("medium") 
+<Name>gps_long</Name>  <Required /> | decimal(9, 6) 
+<Name>gps_lat</Name>  <Required /> | decimal(9, 6)
+
+### Exemple de réponse
+
+```json
+{
+  "id": 1,
+  "name": "Bar AIP",
+  "description": "c\"est le bar à coté de l\"AIP",
+  "gps_long": "4.876851",
+  "gps_lat": "45.783367",
+  "createdAt": "2021-03-03T21:59:21.000Z",
+  "updatedAt": "2021-03-03T21:59:21.000Z"
+}
+```

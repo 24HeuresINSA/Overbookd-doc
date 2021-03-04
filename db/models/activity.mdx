@@ -1,0 +1,56 @@
+---
+id: activity
+title: Activité
+---
+
+import Required from "../components/Required.js";
+import Name from "../components/Name.js";
+import DefaultValue from "../components/DefaultValue.js";
+import ForeignKey from "../components/ForeignKey.js";
+
+Une activité est une partie de l'évènement comportant plusieurs tâches.
+
+### Champs
+
+#### Signalétique
+
++ Si le champs est requis, il est signalé par <Required />
++ Si il a une valeur par défaut, il est signalé par <DefaultValue>valeur par défaut</DefaultValue>
++ Si un champs est une clé étrangère, elle est signalée par <ForeignKey to="shift" label="Créneau" /> 
+
+#### Attributs
+
+Nom | Type
+--- | ---
+<Name>name</Name>  <Required /> | string 
+<Name>description</Name>   | text("medium") 
+<Name>start_date</Name>  <Required /> | date 
+<Name>end_date</Name>  <Required /> | date 
+<Name>contractor_name</Name>   | string 
+<Name>contractor_phone</Name>   | string 
+<Name>contractor_mail</Name>   | string 
+<Name>contractor_comment</Name>   | string 
+<Name>contractor_present_on_event</Name>   | string
+<Name>supervisor_id</Name> <Required /> <ForeignKey to="user" label="Responsable" /> | integer
+<Name>event_id</Name> <Required /> <ForeignKey to="event" label="Evènement" /> | integer
+
+### Exemple de réponse
+
+```json
+{
+  "id": 2,
+  "name": "Ranger le QG orga",
+  "description": "la manif est fini c\"était bien rigolo mais maintenant au boulot on range tout",
+  "start_date": "2019-05-19T18:00:00.000Z",
+  "end_date": "2019-05-20T16:00:00.000Z",
+  "contractor_name": null,
+  "contractor_phone": null,
+  "contractor_mail": null,
+  "contractor_comment": null,
+  "contractor_present_on_event": null,
+  "createdAt": "2021-03-03T21:59:21.000Z",
+  "updatedAt": "2021-03-03T21:59:21.000Z",
+  "supervisor_id": 3,
+  "event_id": 1
+}
+```
