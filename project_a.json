@@ -818,7 +818,7 @@
                     },
                     {
                         "deprecated": false,
-                        "name": "start_date",
+                        "name": "startDate",
                         "description": "The starting date of the event",
                         "schema": {
                             "type": "string"
@@ -832,7 +832,7 @@
                     },
                     {
                         "deprecated": false,
-                        "name": "end_date",
+                        "name": "endDate",
                         "description": "The ending date of the event",
                         "schema": {
                             "type": "string"
@@ -3203,8 +3203,8 @@
                 "description": "An event in Project A",
                 "required": [
                     "name",
-                    "start_date",
-                    "end_date"
+                    "startDate",
+                    "endDate"
                 ],
                 "type": "object",
                 "properties": {
@@ -3218,16 +3218,20 @@
                         "description": "A text describing the event, can be up to 65565 characters",
                         "type": "string"
                     },
-                    "start_date": {
+                    "startDate": {
                         "description": "The starting datetime of the event",
                         "type": "string"
                     },
-                    "end_date": {
+                    "endDate": {
                         "description": "The ending datetime of the event",
                         "type": "string"
                     },
-                    "logo_url": {
+                    "pictureUrl": {
                         "description": "The url of the logo picture",
+                        "type": "string"
+                    },
+                    "catchPhrase": {
+                        "description": "A catch phrase for this event, catch phrase is displayed next to event title",
                         "type": "string"
                     }
                 },
@@ -3235,9 +3239,10 @@
                     "id": 1,
                     "name": "24h de l'INSA",
                     "description": "le festival le plus charismatique de France",
-                    "start_date": "2019-05-17T18:00:00.000Z",
-                    "end_date": "2019-05-19T21:30:00.000Z",
-                    "logo_url": "event_logo_default.png"
+                    "startDate": "2019-05-17T18:00:00.000Z",
+                    "endDate": "2019-05-19T21:30:00.000Z",
+                    "pictureUrl": "event_logo_default.png",
+                    "catchPhrase": "Quand c'est gratuit c'est moins cher !"
                 },
                 "x-last-modified": 1606815449905
             },
