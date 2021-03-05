@@ -818,7 +818,7 @@
                     },
                     {
                         "deprecated": false,
-                        "name": "start_date",
+                        "name": "startDate",
                         "description": "The starting date of the event",
                         "schema": {
                             "type": "string"
@@ -832,7 +832,7 @@
                     },
                     {
                         "deprecated": false,
-                        "name": "end_date",
+                        "name": "endDate",
                         "description": "The ending date of the event",
                         "schema": {
                             "type": "string"
