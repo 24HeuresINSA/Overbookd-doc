@@ -138,6 +138,13 @@ module.exports = {
         sidebarPath: require.resolve('./sidebars/overbookd.js'),
       },
     ],
+    [
+      '@docusaurus/plugin-content-pages',
+      {
+        path: 'src/pages',
+        include: ['**/*.{js,jsx,ts,tsx,md,mdx}']
+      }
+    ],
     ["docusaurus-plugin-openapi", {
       openapiPath: require.resolve("./project_a.json"),
     }],
