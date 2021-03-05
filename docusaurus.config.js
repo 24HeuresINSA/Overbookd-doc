@@ -146,7 +146,7 @@ module.exports = {
       }
     ],
     ["docusaurus-plugin-openapi", {
-      openapiPath: require.resolve("./project_a.json"),
+      openapiPath: require.resolve("./overbookd.json"),
     }],
     "docusaurus2-dotenv",
   ],
