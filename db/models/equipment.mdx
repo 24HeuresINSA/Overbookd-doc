@@ -25,9 +25,9 @@ Nom | Type
 <Name>name</Name>  <Required /> | string 
 <Name>description</Name>   | text("medium") 
 <Name>quantity</Name>  <Required /> | integer
-<Name>equipment_type_id</Name> <Required /> <ForeignKey to="equipment_type" label="Type d'équipement" /> | integer
-<Name>pickup_location</Name> <Required /> <ForeignKey to="location" label="Lieu" /> | integer
-<Name>drop_location</Name> <Required /> <ForeignKey to="location" label="Lieu" /> | integer
+<Name>equipmentTypeId</Name> <Required /> <ForeignKey to="equipmentType" label="Type d'équipement" /> | integer
+<Name>pickupLocation</Name> <Required /> <ForeignKey to="location" label="Lieu" /> | integer
+<Name>dropLocation</Name> <Required /> <ForeignKey to="location" label="Lieu" /> | integer
 
 ### Exemple de réponse
 
@@ -39,8 +39,8 @@ Nom | Type
   "quantity": 1,
   "createdAt": "2021-03-03T21:59:21.000Z",
   "updatedAt": "2021-03-03T21:59:21.000Z",
-  "equipment_type_id": 1,
-  "pickup_location": 1,
-  "drop_location": 3
+  "equipmentTypeId": 1,
+  "pickupLocation": 1,
+  "dropLocation": 3
 }
 ```

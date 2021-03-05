@@ -23,10 +23,10 @@ Une équipe regroupe plusieurs utilisateurs. Un utilisateur peut être dans plus
 Nom | Type
 --- | ---
 <Name>name</Name>  <Required /> | string 
-<Name>confidence_level</Name>  <Required /> | integer <DefaultValue>0</DefaultValue>
+<Name>confidenceLevel</Name>  <Required /> | integer <DefaultValue>0</DefaultValue>
 <Name>priority</Name>  <Required /> | integer <DefaultValue>10</DefaultValue>
 <Name>color</Name>  <Required /> | string <DefaultValue>#888888</DefaultValue>
-<Name>supervisor_id</Name> <Required /> <ForeignKey to="user" label="Responsable" /> | integer
+<Name>supervisorId</Name> <Required /> <ForeignKey to="user" label="Responsable" /> | integer
 
 ### Exemple de réponse
 
@@ -34,11 +34,11 @@ Nom | Type
 {
   "id": 1,
   "name": "INSA",
-  "confidence_level": 0,
+  "confidenceLevel": 0,
   "priority": 10,
   "color": "#888888",
   "createdAt": "2021-03-03T21:59:21.000Z",
   "updatedAt": "2021-03-03T21:59:21.000Z",
-  "supervisor_id": 1
+  "supervisorId": 1
 }
 ```

@@ -24,9 +24,9 @@ Nom | Type
 --- | ---
 <Name>content</Name>  <Required /> | text("medium") 
 <Name>date</Name>  <Required /> | date 
-<Name>activity_id</Name> <ForeignKey to="activity" label="Activité" /> | integer
-<Name>task_id</Name> <ForeignKey to="task" label="Tâche" /> | integer
-<Name>user_id</Name> <Required /> <ForeignKey to="user" label="Utilisateur" /> | integer
+<Name>activityId</Name> <ForeignKey to="activity" label="Activité" /> | integer
+<Name>taskId</Name> <ForeignKey to="task" label="Tâche" /> | integer
+<Name>userId</Name> <Required /> <ForeignKey to="user" label="Utilisateur" /> | integer
 
 ### Exemple de réponse
 
@@ -35,13 +35,13 @@ Nom | Type
   "id": 1,
   "name": "Stocker le fromage",
   "description": "on prend la liste de course et on achete ce qu\"il y a marqué",
-  "start_date": "2019-05-11T10:00:00.000Z",
-  "end_date": "2019-05-11T12:00:00.000Z",
+  "startDate": "2019-05-11T10:00:00.000Z",
+  "endDate": "2019-05-11T12:00:00.000Z",
   "createdAt": "2021-03-03T21:59:21.000Z",
   "updatedAt": "2021-03-03T21:59:21.000Z",
-  "supervisor_id": 2,
-  "team_id": 2,
-  "location_id": 2,
-  "activity_id": 1
+  "supervisorId": 2,
+  "teamId": 2,
+  "locationId": 2,
+  "activityId": 1
 }
 ```

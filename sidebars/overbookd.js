@@ -1,9 +1,9 @@
 module.exports = {
   sidebarDoc: {
     "Project A": ['introduction', 'installation', 'deployment'],
-    "API": ['api/using_api'],
+    "API": ['api/usingApi'],
     "Authentification": ['auth/authentication'],
-    "Application Web": ['appweb/using_appweb'],
+    "Application Web": ['appweb/usingAppweb'],
     "Documentation": ['doc/documentation']
   },
 };
