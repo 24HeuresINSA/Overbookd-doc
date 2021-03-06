@@ -23,21 +23,21 @@ de noter la difficulté de celui-ci.
 
 Nom | Type
 --- | ---
-<Name>start_date</Name>  <Required /> | date 
-<Name>end_date</Name>  <Required /> | date 
+<Name>startDate</Name>  <Required /> | date 
+<Name>endDate</Name>  <Required /> | date 
 <Name>charisma</Name>  <Required /> | integer
-<Name>shift_category_id</Name> <Required /> <ForeignKey to="shift_category" label="Catégorie de créneau" /> | integer
+<Name>shiftCategoryId</Name> <Required /> <ForeignKey to="shiftCategory" label="Catégorie de créneau" /> | integer
 
 ### Exemple de réponse
 
 ```json
 {
   "id": 1,
-  "start_date": "2019-05-19T10:00:00.000Z",
-  "end_date": "2019-05-19T12:00:00.000Z",
+  "startDate": "2019-05-19T10:00:00.000Z",
+  "endDate": "2019-05-19T12:00:00.000Z",
   "charisma": 15,
   "createdAt": "2021-03-03T21:59:21.000Z",
   "updatedAt": "2021-03-03T21:59:21.000Z",
-  "shift_category_id": 1
+  "shiftCategoryId": 1
 }
 ```

@@ -24,15 +24,15 @@ Nom | Type
 --- | ---
 <Name>name</Name>  <Required /> | string 
 <Name>description</Name>   | text("medium") 
-<Name>start_date</Name>  <Required /> | date 
-<Name>end_date</Name>  <Required /> | date 
-<Name>contractor_name</Name>   | string 
-<Name>contractor_phone</Name>   | string 
-<Name>contractor_mail</Name>   | string 
-<Name>contractor_comment</Name>   | string 
-<Name>contractor_present_on_event</Name>   | string
-<Name>supervisor_id</Name> <Required /> <ForeignKey to="user" label="Responsable" /> | integer
-<Name>event_id</Name> <Required /> <ForeignKey to="event" label="Evènement" /> | integer
+<Name>startDate</Name>  <Required /> | date 
+<Name>endDate</Name>  <Required /> | date 
+<Name>contractorName</Name>   | string 
+<Name>contractorPhone</Name>   | string 
+<Name>contractorMail</Name>   | string 
+<Name>contractorComment</Name>   | string 
+<Name>contractorPresentOnEvent</Name>   | string
+<Name>supervisorId</Name> <Required /> <ForeignKey to="user" label="Responsable" /> | integer
+<Name>eventId</Name> <Required /> <ForeignKey to="event" label="Evènement" /> | integer
 
 ### Exemple de réponse
 
@@ -41,16 +41,16 @@ Nom | Type
   "id": 2,
   "name": "Ranger le QG orga",
   "description": "la manif est fini c\"était bien rigolo mais maintenant au boulot on range tout",
-  "start_date": "2019-05-19T18:00:00.000Z",
-  "end_date": "2019-05-20T16:00:00.000Z",
-  "contractor_name": null,
-  "contractor_phone": null,
-  "contractor_mail": null,
-  "contractor_comment": null,
-  "contractor_present_on_event": null,
+  "startDate": "2019-05-19T18:00:00.000Z",
+  "endDate": "2019-05-20T16:00:00.000Z",
+  "contractorName": null,
+  "contractorPhone": null,
+  "contractorMail": null,
+  "contractorComment": null,
+  "contractorPresentOnEvent": null,
   "createdAt": "2021-03-03T21:59:21.000Z",
   "updatedAt": "2021-03-03T21:59:21.000Z",
-  "supervisor_id": 3,
-  "event_id": 1
+  "supervisorId": 3,
+  "eventId": 1
 }
 ```

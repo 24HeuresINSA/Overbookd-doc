@@ -11,14 +11,14 @@ module.exports = {
       { 
         "Equipements": 
         [ 
-          'models/equipment_type',
+          'models/equipmentType',
           'models/equipment'
         ]
       },
       {
         "Créneaux" :
         [
-          'models/shift_category',
+          'models/shiftCategory',
           'models/shift'
         ]
       },

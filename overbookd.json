@@ -1,0 +1,3680 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Project A API",
+        "version": "1.0",
+        "description": "API de l'application Project A",
+        "contact": {
+            "name": "24 Heures de l'INSA",
+            "url": "https://www.24heures.org",
+            "email": "contact@24heures.org"
+        }
+    },
+    "servers": [
+        {
+            "url": "https://orgassomakerify.debrej.fr/api",
+            "description": "Serveur d'API",
+            "x-last-modified": 1606833662563
+        }
+    ],
+    "paths": {
+        "/activity": {
+            "summary": "REST operations on activities",
+            "get": {
+                "tags": [
+                    "Activity"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Location"
+                                }
+                            }
+                        },
+                        "description": "### Returns a list of locations",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/Activity"
+                            }
+                        },
+                        "x-last-modified": 1609198682152
+                    }
+                },
+                "operationId": "getActivities",
+                "summary": "Getting a list of activities",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Activity"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Activity"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Activity"
+                                }
+                            }
+                        },
+                        "description": "### Successful update",
+                        "x-last-modified": 1609196987777
+                    }
+                },
+                "operationId": "updateActivity",
+                "summary": "Updating an activity",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_modifier"
+                        ]
+                    }
+                ]
+            },
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Activity"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Activity"
+                ],
+                "responses": {
+                    "201": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Activity"
+                                }
+                            }
+                        },
+                        "description": "### Successful creation",
+                        "x-last-modified": 1609196921296
+                    }
+                },
+                "operationId": "createActivity",
+                "summary": "Creating an activity",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_modifier"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Activity"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "type": "number",
+                        "x-last-modified": 1609197069196
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "### Successful deletion",
+                        "x-last-modified": 1609197021388
+                    }
+                },
+                "operationId": "destroyActivity",
+                "summary": "Deleting an activity",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_modifier"
+                        ]
+                    }
+                ]
+            },
+            "x-last-modified": 1609196737918
+        },
+        "/activity/location": {
+            "summary": "Operations on activities' locations",
+            "get": {
+                "tags": [
+                    "Activity"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Location"
+                                }
+                            }
+                        },
+                        "description": "### Returns a list of locations",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/Activity"
+                            }
+                        },
+                        "x-last-modified": 1609199286049
+                    }
+                },
+                "operationId": "getActivitiesLocations",
+                "summary": "Getting all activities' locations",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            },
+            "x-last-modified": 1609197151659
+        },
+        "/activity/{id}/location": {
+            "summary": "Getting an activity's location",
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Location"
+                                }
+                            },
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/Location"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Activity"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "path",
+                        "required": true,
+                        "type": "number",
+                        "x-last-modified": 1609199521422
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Location"
+                                    }
+                                }
+                            }
+                        },
+                        "description": "### Returns a list of locations",
+                        "x-last-modified": 1609199539799
+                    }
+                },
+                "operationId": "updateActivitiesLocations",
+                "summary": "Updating activity's locations",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_modifier"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Activity"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "path",
+                        "required": true,
+                        "type": "number",
+                        "x-last-modified": 1609199425234
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Location"
+                                    }
+                                }
+                            }
+                        },
+                        "description": "### Returns a list of locations",
+                        "x-last-modified": 1609269011822
+                    }
+                },
+                "operationId": "deleteActivitiesLocations",
+                "summary": "Deleting an activity's locations",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_modifier"
+                        ]
+                    }
+                ]
+            },
+            "x-last-modified": 1609198779858
+        },
+        "/comment": {
+            "summary": "REST operations on comments",
+            "description": "REST operations on comments",
+            "get": {
+                "tags": [
+                    "Comment"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Comment"
+                                }
+                            }
+                        },
+                        "description": "### Returns a list of comments",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/Comment"
+                            }
+                        },
+                        "x-last-modified": 1609270151354
+                    }
+                },
+                "operationId": "getComments",
+                "summary": "Getting a list of comments",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Comment"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Comment"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "type": "number",
+                        "x-last-modified": 1609270311595
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Comment"
+                                }
+                            }
+                        },
+                        "description": "### Successful update",
+                        "x-last-modified": 1609270277587
+                    }
+                },
+                "operationId": "updateComment",
+                "summary": "Updating a comment",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            },
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Comment"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Comment"
+                ],
+                "responses": {
+                    "201": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Comment"
+                                }
+                            }
+                        },
+                        "description": "### Successful creation",
+                        "x-last-modified": 1609270214147
+                    }
+                },
+                "operationId": "createComment",
+                "summary": "Creating a comment",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Comment"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "type": "number",
+                        "x-last-modified": 1609270360469
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "### Successful deletion",
+                        "x-last-modified": 1609270374787
+                    }
+                },
+                "operationId": "destroyComment",
+                "summary": "Deleting a comment",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            },
+            "x-last-modified": 1609270100181
+        },
+        "/equipment": {
+            "summary": "REST operations on equipments",
+            "get": {
+                "tags": [
+                    "Equipment"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Equipment"
+                                }
+                            }
+                        },
+                        "description": "### Returns a list of equipments",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/Equipment"
+                            }
+                        },
+                        "x-last-modified": 1609271050475
+                    }
+                },
+                "operationId": "getEquipment",
+                "summary": "Get a list of equipments",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Equipment"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Equipment"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "type": "number",
+                        "x-last-modified": 1609271150496
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Equipment"
+                                }
+                            }
+                        },
+                        "description": "### Successful update",
+                        "x-last-modified": 1609271176793
+                    }
+                },
+                "operationId": "updateEquipment",
+                "summary": "Updating an equipment",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_log"
+                        ]
+                    }
+                ]
+            },
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Equipment"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Equipment"
+                ],
+                "responses": {
+                    "201": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Equipment"
+                                }
+                            }
+                        },
+                        "description": "### Successful creation",
+                        "x-last-modified": 1609271099179
+                    }
+                },
+                "operationId": "createEquipment",
+                "summary": "Creating an equipment",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_log"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Equipment"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "type": "number",
+                        "x-last-modified": 1609271234127
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "### Successful deletion",
+                        "x-last-modified": 1609271252593
+                    }
+                },
+                "operationId": "destroyEquipment",
+                "summary": "Deleting an equipment",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_log"
+                        ]
+                    }
+                ]
+            },
+            "x-last-modified": 1609270997051
+        },
+        "/equipmentType": {
+            "summary": "REST operations on equipment types",
+            "get": {
+                "tags": [
+                    "Equipment Type"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/EquipmentType"
+                                }
+                            }
+                        },
+                        "description": "### Returns a list of equipment types",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/Equipment Type"
+                            }
+                        },
+                        "x-last-modified": 1609270573220
+                    }
+                },
+                "operationId": "getEquipmentTypes",
+                "summary": "Getting a list of equipment types",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EquipmentType"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Equipment Type"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "type": "number",
+                        "x-last-modified": 1609270706743
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/EquipmentType"
+                                }
+                            }
+                        },
+                        "description": "### Successful update",
+                        "x-last-modified": 1609270738602
+                    }
+                },
+                "operationId": "updateEquipmentType",
+                "summary": "Updating an equipment type",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_log"
+                        ]
+                    }
+                ]
+            },
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EquipmentType"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Equipment Type"
+                ],
+                "responses": {
+                    "201": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/EquipmentType"
+                                }
+                            }
+                        },
+                        "description": "### Successful creation",
+                        "x-last-modified": 1609270634991
+                    }
+                },
+                "operationId": "createEquipmentType",
+                "summary": "Creating an equipment type",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_log"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Equipment Type"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "type": "number",
+                        "x-last-modified": 1609270805670
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "### Successful deletion",
+                        "x-last-modified": 1609270854498
+                    }
+                },
+                "operationId": "destroyEquipmentType",
+                "summary": "Deleting an equipment type",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_log"
+                        ]
+                    }
+                ]
+            },
+            "x-last-modified": 1609270528287
+        },
+        "/event": {
+            "summary": "REST Operations on Events",
+            "description": "REST Operations on events",
+            "get": {
+                "tags": [
+                    "Event"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "name",
+                        "description": "The name of the event",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "query",
+                        "required": false,
+                        "allowEmptyValue": false,
+                        "type": "string",
+                        "x-last-modified": 1606503949067
+                    },
+                    {
+                        "deprecated": false,
+                        "name": "startDate",
+                        "description": "The starting date of the event",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "query",
+                        "required": false,
+                        "allowEmptyValue": false,
+                        "type": "string",
+                        "format": "datetime",
+                        "x-last-modified": 1606503990668
+                    },
+                    {
+                        "deprecated": false,
+                        "name": "endDate",
+                        "description": "The ending date of the event",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "query",
+                        "required": false,
+                        "allowEmptyValue": false,
+                        "type": "string",
+                        "format": "datetime",
+                        "x-last-modified": 1606504031407
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "### Returns a list of events",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/Event"
+                            }
+                        },
+                        "x-last-modified": 1606834064338
+                    }
+                },
+                "operationId": "getEvent",
+                "summary": "Getting a list of events",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Event"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Event"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Event"
+                                }
+                            }
+                        },
+                        "description": "### Successful operation",
+                        "x-last-modified": 1606814860267
+                    }
+                },
+                "operationId": "updateEvent",
+                "summary": "Updating an event",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_admin"
+                        ]
+                    }
+                ]
+            },
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Event"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Event"
+                ],
+                "responses": {
+                    "201": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Event"
+                                }
+                            }
+                        },
+                        "description": "### Successful creation",
+                        "x-last-modified": 1606814839388
+                    }
+                },
+                "operationId": "createEvent",
+                "summary": "Creating an event",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_admin"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Event"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "in": "query",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "type": "integer",
+                        "x-last-modified": 1606814888695
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "### Successful deletion",
+                        "x-last-modified": 1606815822371
+                    }
+                },
+                "operationId": "destroyEvent",
+                "summary": "Deleting an event",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_admin"
+                        ]
+                    }
+                ]
+            },
+            "x-last-modified": 1606503677446
+        },
+        "/event/{id}/photo": {
+            "summary": "Update event's photo",
+            "put": {
+                "tags": [
+                    "Event"
+                ],
+                "summary": "Update event's photo",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "updateEventPhoto",
+                "responses": {
+                    "200": {
+                        "description": "### Successful upload",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Event"
+                                }
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "required": true,
+                    "description": "Photo representing the event",
+                    "content": {
+                        "image/*": {
+                            "schema": {
+                                "type": "string",
+                                "format": "binary"
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_admin"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/location": {
+            "summary": "REST Operations on Locations",
+            "description": "REST Operations on Locations",
+            "get": {
+                "tags": [
+                    "Location"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "### Returns a list of locations",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/Location"
+                            }
+                        },
+                        "x-last-modified": 1606834102680
+                    }
+                },
+                "operationId": "getLocation",
+                "summary": "Getting a list of locations",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Location"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Location"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Location"
+                                }
+                            }
+                        },
+                        "description": "### Successful update",
+                        "x-last-modified": 1606832269698
+                    }
+                },
+                "operationId": "updateLocation",
+                "summary": "Updating a location",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_modifier"
+                        ]
+                    }
+                ]
+            },
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Location"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Location"
+                ],
+                "responses": {
+                    "201": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Location"
+                                }
+                            }
+                        },
+                        "description": "### Successful creation",
+                        "x-last-modified": 1606831940464
+                    }
+                },
+                "operationId": "createLocation",
+                "summary": "Creating a location",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_modifier"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Location"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "in": "query",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "type": "integer",
+                        "x-last-modified": 1606815769092
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "### Successful deletion",
+                        "x-last-modified": 1606815787342
+                    }
+                },
+                "operationId": "deleteLocation",
+                "summary": "Deleting a location",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_modifier"
+                        ]
+                    }
+                ]
+            },
+            "x-last-modified": 1606815685788
+        },
+        "/notification": {
+            "summary": "REST operations on notifications",
+            "get": {
+                "tags": [
+                    "Notification"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Notification"
+                                }
+                            }
+                        },
+                        "description": "### Returns a list of notifications",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/Notification"
+                            }
+                        },
+                        "x-last-modified": 1609272418887
+                    }
+                },
+                "operationId": "getNotifications",
+                "summary": "Getting a list of notifications",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Notification"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Notification"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "type": "number",
+                        "x-last-modified": 1609272529176
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Notification"
+                                }
+                            }
+                        },
+                        "description": "### Successful update",
+                        "x-last-modified": 1609272550137
+                    }
+                },
+                "operationId": "updateNotification",
+                "summary": "Updating a notification",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_admin"
+                        ]
+                    }
+                ]
+            },
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Notification"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Notification"
+                ],
+                "responses": {
+                    "201": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Notification"
+                                }
+                            }
+                        },
+                        "description": "### Successful creation",
+                        "x-last-modified": 1609272581421
+                    }
+                },
+                "operationId": "createNotification",
+                "summary": "Creating a notification",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_admin"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Notification"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "type": "number",
+                        "x-last-modified": 1609272622719
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "### Successful deletion",
+                        "x-last-modified": 1609272634119
+                    }
+                },
+                "operationId": "destroyNotification",
+                "summary": "Deleting a notification",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_admin"
+                        ]
+                    }
+                ]
+            },
+            "x-last-modified": 1609272359084
+        },
+        "/notification/{id}/read": {
+            "summary": "Changing status to read",
+            "put": {
+                "tags": [
+                    "Notification"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "path",
+                        "required": true,
+                        "type": "number",
+                        "x-last-modified": 1609272909985
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Notification"
+                                }
+                            }
+                        },
+                        "description": "### Successful update",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/Notification"
+                            }
+                        },
+                        "x-last-modified": 1609272884678
+                    }
+                },
+                "operationId": "readNotification",
+                "summary": "Change the status of a notification to read",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_admin"
+                        ]
+                    }
+                ]
+            },
+            "x-last-modified": 1609272766274
+        },
+        "/notification/{id}/unread": {
+            "summary": "Changing the status of a notification to unread",
+            "put": {
+                "tags": [
+                    "Notification"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "path",
+                        "required": true,
+                        "type": "number",
+                        "x-last-modified": 1609273010166
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Notification"
+                                }
+                            }
+                        },
+                        "description": "### Successful update",
+                        "x-last-modified": 1609273041237
+                    }
+                },
+                "operationId": "unreadNotification",
+                "summary": "Changing the status of a notification to unread",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_admin"
+                        ]
+                    }
+                ]
+            },
+            "x-last-modified": 1609272961595
+        },
+        "/shift": {
+            "summary": "REST operations on shifts",
+            "get": {
+                "tags": [
+                    "Shift"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Shift"
+                                }
+                            }
+                        },
+                        "description": "### Returns a list of shifts",
+                        "x-last-modified": 1609274057317,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/Shift"
+                            }
+                        }
+                    }
+                },
+                "operationId": "getShift",
+                "summary": "Getting a list of shifts",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Shift"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Shift"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "$ref": "#/components/schemas/Shift"
+                        },
+                        "in": "query",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "x-last-modified": 1609274155858
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Shift"
+                                }
+                            }
+                        },
+                        "description": "### Successful update",
+                        "x-last-modified": 1609274178101
+                    }
+                },
+                "operationId": "updateShift",
+                "summary": "Updating a shift",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_admin"
+                        ]
+                    }
+                ]
+            },
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Shift"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Shift"
+                ],
+                "responses": {
+                    "201": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Shift"
+                                }
+                            }
+                        },
+                        "description": "### Successful creation",
+                        "x-last-modified": 1609274097498
+                    }
+                },
+                "operationId": "createShift",
+                "summary": "Creating a shift",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_admin"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Shift"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "type": "number",
+                        "x-last-modified": 1609274232165
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Shift"
+                                }
+                            }
+                        },
+                        "description": "### Successful deletion",
+                        "x-last-modified": 1609274255930
+                    }
+                },
+                "operationId": "destroyShift",
+                "summary": "Deleting a shift",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_admin"
+                        ]
+                    }
+                ]
+            },
+            "x-last-modified": 1609273938563
+        },
+        "/shift/window": {
+            "summary": "Creating shift within a window",
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "startDate": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "default": "2021-01-01T12:00:00Z",
+                                        "description": "Starting datetime of the shift window"
+                                    },
+                                    "endDate": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "default": "2021-01-01T14:00:00Z",
+                                        "description": "Ending datetime of the shift window"
+                                    },
+                                    "shiftLength": {
+                                        "type": "number",
+                                        "description": "Duration of each shift, in minutes"
+                                    },
+                                    "charisma": {
+                                        "type": "number",
+                                        "description": "Number to evaluate the harshness of the shift"
+                                    }
+                                },
+                                "example": {
+                                    "startDate": "2021-01-01T12:00:00Z",
+                                    "endDate": "2021-01-01T14:00:00Z",
+                                    "shiftLength": 15,
+                                    "charisma": 10
+                                }
+                            },
+                            "example": {
+                                "startDate": "2021-01-01T12:00:00Z",
+                                "endDate": "2021-01-01T14:00:00Z",
+                                "shiftLength": 15,
+                                "charisma": 10
+                            },
+                            "type": "object",
+                            "properties": {
+                                "startDate": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "default": "2021-01-01T12:00:00Z",
+                                    "description": "Starting datetime of the shift window"
+                                },
+                                "endDate": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "default": "2021-01-01T14:00:00Z",
+                                    "description": "Ending datetime of the shift window"
+                                },
+                                "shiftLength": {
+                                    "type": "number",
+                                    "description": "Duration of each shift, in minutes"
+                                },
+                                "charisma": {
+                                    "type": "number",
+                                    "description": "Number to evaluate the harshness of the shift"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Shift"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "### Successful creation",
+                        "x-last-modified": 1609274456075
+                    }
+                },
+                "operationId": "createShiftWindow",
+                "summary": "Creating shifts within a time window",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_admin"
+                        ]
+                    }
+                ]
+            },
+            "x-last-modified": 1609274312489
+        },
+        "/shiftCategory": {
+            "summary": "REST operations on shift categories",
+            "get": {
+                "tags": [
+                    "Shift Category"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShiftCategory"
+                                }
+                            }
+                        },
+                        "description": "### Returns a list of shift categories",
+                        "x-last-modified": 1609273589866,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/Shift Category"
+                            }
+                        }
+                    }
+                },
+                "operationId": "getShiftCategories",
+                "summary": "Getting a list of shift categories",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ShiftCategory"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Shift Category"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "type": "number",
+                        "x-last-modified": 1609273673725
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShiftCategory"
+                                }
+                            }
+                        },
+                        "description": "### Successful update",
+                        "x-last-modified": 1609273701555
+                    }
+                },
+                "operationId": "updateShiftCategory",
+                "summary": "Updating a shift category",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_admin"
+                        ]
+                    }
+                ]
+            },
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ShiftCategory"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Shift Category"
+                ],
+                "responses": {
+                    "201": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShiftCategory"
+                                }
+                            }
+                        },
+                        "description": "### Successful creation",
+                        "x-last-modified": 1609273645801
+                    }
+                },
+                "operationId": "createShiftCategory",
+                "summary": "Creating a shift category",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_admin"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Shift Category"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "type": "number",
+                        "x-last-modified": 1609273763390
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShiftCategory"
+                                }
+                            }
+                        },
+                        "description": "### Successful deletion",
+                        "x-last-modified": 1609273789655
+                    }
+                },
+                "operationId": "destroyShiftCategory",
+                "summary": "Deleting a shift category"
+            },
+            "x-last-modified": 1609273537058
+        },
+        "/specialty": {
+            "summary": "REST Operations on Specialties",
+            "description": "REST Operations on specialties",
+            "get": {
+                "tags": [
+                    "Specialty"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "name",
+                        "description": "The name of the specialty",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "query",
+                        "required": false,
+                        "allowEmptyValue": false,
+                        "type": "string",
+                        "pattern": "\\c+",
+                        "x-last-modified": 1606471359878
+                    },
+                    {
+                        "deprecated": false,
+                        "name": "year",
+                        "description": "The year of the specialty",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "query",
+                        "required": false,
+                        "allowEmptyValue": false,
+                        "type": "string",
+                        "pattern": "\\d+",
+                        "x-last-modified": 1606471858515
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "### Returns a list of specialties",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/Specialty"
+                            }
+                        },
+                        "x-last-modified": 1606834316046
+                    }
+                },
+                "operationId": "getSpecialty",
+                "summary": "Getting a list of specialties",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Specialty"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Specialty"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Specialty"
+                                }
+                            }
+                        },
+                        "description": "### Successful operation",
+                        "x-last-modified": 1606465293818
+                    }
+                },
+                "operationId": "updateSpecialty",
+                "summary": "Updating a specialty",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_admin"
+                        ]
+                    }
+                ]
+            },
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Specialty"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Specialty"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Specialty"
+                                }
+                            }
+                        },
+                        "description": "### Successful operation",
+                        "x-last-modified": 1606465270679
+                    }
+                },
+                "operationId": "createSpecialty",
+                "summary": "Creating a new specialty",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_admin"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Specialty"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "in": "query",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "type": "integer",
+                        "x-last-modified": 1606814984230
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Specialty successfully deleted",
+                        "x-last-modified": 1606464875763
+                    }
+                },
+                "operationId": "destroySpecialty",
+                "summary": "Deleting a specialty",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_admin"
+                        ]
+                    }
+                ]
+            },
+            "x-last-modified": 1606464075336
+        },
+        "/task": {
+            "summary": "REST operations on tasks",
+            "description": "REST operations on tasks",
+            "get": {
+                "tags": [
+                    "Task"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Task"
+                                }
+                            }
+                        },
+                        "description": "### Returns a list of tasks",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/Task"
+                            }
+                        },
+                        "x-last-modified": 1609270374787
+                    }
+                },
+                "operationId": "gettasks",
+                "summary": "Getting a list of tasks",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Task"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Task"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "type": "number",
+                        "x-last-modified": 1609270374787
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Task"
+                                }
+                            }
+                        },
+                        "description": "### Successful update",
+                        "x-last-modified": 1609270374787
+                    }
+                },
+                "operationId": "updateTask",
+                "summary": "Updating a task",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_modifier"
+                        ]
+                    }
+                ]
+            },
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Task"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Task"
+                ],
+                "responses": {
+                    "201": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Task"
+                                }
+                            }
+                        },
+                        "description": "### Successful creation",
+                        "x-last-modified": 1609270374787
+                    }
+                },
+                "operationId": "createTask",
+                "summary": "Creating a task",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_modifier"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Task"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "type": "number",
+                        "x-last-modified": 1609270374787
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "### Successful deletion",
+                        "x-last-modified": 1609270374787
+                    }
+                },
+                "operationId": "destroyTask",
+                "summary": "Deleting a task",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_modifier"
+                        ]
+                    }
+                ]
+            },
+            "x-last-modified": 1609270374787
+        },
+        "/task/requireTeam": {
+            "summary": "Getting the list of tasks that require one team",
+            "description": "Getting the list of tasks that require one team",
+            "get": {
+                "tags": [
+                    "Task"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Task"
+                                }
+                            }
+                        },
+                        "description": "### Returns a list of tasks",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/Task"
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "teamId",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "type": "number",
+                        "x-last-modified": 1609270374787
+                    }
+                ],
+                "operationId": "getRequiredTeamTasks",
+                "summary": "Getting the list of tasks that require one team",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/task/requireUser": {
+            "summary": "Getting the list of tasks that require one user",
+            "description": "Getting the list of tasks that require one user",
+            "get": {
+                "tags": [
+                    "Task"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Task"
+                                }
+                            }
+                        },
+                        "description": "### Returns a list of tasks",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/Task"
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "userId",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "type": "number",
+                        "x-last-modified": 1609270374787
+                    }
+                ],
+                "operationId": "getRequiredUserTasks",
+                "summary": "Getting the list of tasks that require one user",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/team": {
+            "summary": "REST operations on teams",
+            "description": "REST operations on teams",
+            "get": {
+                "tags": [
+                    "Team"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Team"
+                                }
+                            }
+                        },
+                        "description": "### Returns a list of teams",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/Team"
+                            }
+                        },
+                        "x-last-modified": 1609270374787
+                    }
+                },
+                "operationId": "getteams",
+                "summary": "Getting a list of teams",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Team"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Team"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "type": "number",
+                        "x-last-modified": 1609270374787
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Team"
+                                }
+                            }
+                        },
+                        "description": "### Successful update",
+                        "x-last-modified": 1609270374787
+                    }
+                },
+                "operationId": "updateTeam",
+                "summary": "Updating a team",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_affect"
+                        ]
+                    }
+                ]
+            },
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Team"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Team"
+                ],
+                "responses": {
+                    "201": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Team"
+                                }
+                            }
+                        },
+                        "description": "### Successful creation",
+                        "x-last-modified": 1609270374787
+                    }
+                },
+                "operationId": "createTeam",
+                "summary": "Creating a team",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_affect"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Team"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "type": "number",
+                        "x-last-modified": 1609270374787
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "### Successful deletion",
+                        "x-last-modified": 1609270374787
+                    }
+                },
+                "operationId": "destroyTeam",
+                "summary": "Deleting a team",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_affect"
+                        ]
+                    }
+                ]
+            },
+            "x-last-modified": 1609270374787
+        },
+        "/team/{id}/members": {
+            "summary": "Getting the list of members of a team",
+            "description": "Getting the list of members of a team",
+            "get": {
+                "tags": [
+                    "Team"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        },
+                        "description": "### Returns a list of users",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/Team"
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "path",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "type": "number",
+                        "x-last-modified": 1609270374787
+                    }
+                ],
+                "operationId": "getTeamMembers",
+                "summary": "Getting the list of members of a team",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/user": {
+            "summary": "CRUD operations on User",
+            "description": "CRUD operations on users",
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "tshirtSize",
+                        "description": "User's tshirt size, can be XS, S, M, L or XL",
+                        "schema": {
+                            "enum": [
+                                "XS",
+                                "S",
+                                "M",
+                                "L",
+                                "XL"
+                            ],
+                            "type": "string"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "validity",
+                        "description": "If a user has been validated by an admin",
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "specialtyId",
+                        "description": "Specialty ID for the user",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "userId",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": "0"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "### Returns a list of users",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        },
+                        "x-last-modified": 1606833873047
+                    }
+                },
+                "operationId": "getUser",
+                "summary": "Getting a list of users",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "User"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        },
+                        "description": "### Successful update",
+                        "x-last-modified": 1606836324899
+                    }
+                },
+                "operationId": "updateUser",
+                "summary": "Updating a user",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            },
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "User"
+                ],
+                "responses": {
+                    "201": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        },
+                        "description": "### Successful creation",
+                        "x-last-modified": 1606836268533
+                    }
+                },
+                "operationId": "createUser",
+                "summary": "Creating a user",
+                "parameters": [],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "deprecated": false,
+                        "name": "id",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "query",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "type": "string",
+                        "x-last-modified": 1606836356640
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "### Successful deletion",
+                        "x-last-modified": 1606836368184
+                    }
+                },
+                "operationId": "deleteUser",
+                "summary": "Deleting a user",
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_admin"
+                        ]
+                    }
+                ]
+            },
+            "x-last-modified": 1606833765752
+        },
+        "/user/team": {
+            "summary": "Get list of teams from users",
+            "get": {
+                "summary": "Get list of teams from users",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "getUsersTeams",
+                "responses": {
+                    "200": {
+                        "description": "### Returns a list of teams",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/user/{id}/validate": {
+            "summary": "Validate user",
+            "put": {
+                "summary": "Validate user",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "validateUser",
+                "responses": {
+                    "200": {
+                        "description": "### Successful validation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "test"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_affect"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/user/{id}/invalidate": {
+            "summary": "Invalidating user",
+            "put": {
+                "summary": "Invalidating user",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "invalidateUser",
+                "responses": {
+                    "200": {
+                        "description": "### Successful invalidation"
+                    }
+                },
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_affect"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/user/{id}/licence": {
+            "summary": "Updating user's licence",
+            "put": {
+                "summary": "Updating user's licence",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "updateUserLicence",
+                "responses": {
+                    "200": {
+                        "description": "### Successful upload",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "User"
+                ],
+                "requestBody": {
+                    "description": "An image of the licence",
+                    "content": {
+                        "image/*": {
+                            "schema": {
+                                "type": "string",
+                                "format": "binary"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/user/{id}/photo": {
+            "summary": "Updating user's photo",
+            "put": {
+                "summary": "Updating user's photo",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "updateUserPhoto",
+                "responses": {
+                    "200": {
+                        "description": "### Successful upload",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "User"
+                ],
+                "requestBody": {
+                    "description": "An image of the user",
+                    "content": {
+                        "image/*": {
+                            "schema": {
+                                "type": "string",
+                                "format": "binary"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "security": [
+                    {
+                        "keycloak": [
+                            "user"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/user/{id}/team": {
+            "summary": "Updating user's teams",
+            "put": {
+                "summary": "Updating user's teams",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "Array of team ids",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Team"
+                                }
+                            }
+                        }
+
+                    }
+                },
+                "operationId": "updateUserTeams",
+                "responses": {
+                    "200": {
+                        "description": "### Successful update"
+                    }
+                },
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                        "keycloak": [
+                            "user_affect"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/realms/projectA/protocol/openid-connect/token": {
+            "summary": "Authentications operations",
+            "get": {
+                "summary": "Getting or refreshing an access token",
+                "description": "The API needs an access token to responds favorably to requests. You can use the **password** directive to get one or **refresh_oken** to refresh an expired one.\nFor more information on authentication, visit the [documentation](../../docs/auth/authentication)",
+                "parameters": [],
+                "operationId": "tokenOperations",
+                "tags": [
+                    "Authentication"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "grant_type": {
+                                        "type": "string",
+                                        "enum": [
+                                            "password",
+                                            "refresh_token"
+                                        ],
+                                        "description": "Can be either \n - **password**, to use with Username and Password \n - **refresh_token**, to use with RefreshToken"
+                                    },
+                                    "client_id": {
+                                        "type": "string",
+                                        "enum": [
+                                            "project_a_web"
+                                        ],
+                                        "description": "Scope used in keycloak, **don't change that**"
+                                    },
+                                    "username": {
+                                        "type": "string",
+                                        "description": "Username used to authenticate the user"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "description": "Username password, make sure to **always** pass it with Https"
+                                    },
+                                    "refresh_token": {
+                                        "type": "string",
+                                        "description": "Refresh token stored in browser's local storage"
+                                    }
+                                },
+                                "required": ["grant_type", "client_id"]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "### Authorized \n Tokens :\n - *access_token*: the token issued by the server\n - *refresh_token*: token issued to renew access token without re-login",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "access_token": {
+                                            "type": "string"
+                                        },
+                                        "expires_in": {
+                                            "type": "number"
+                                        },
+                                        "refresh_expires_in": {
+                                            "type": "number"
+                                        },
+                                        "refresh_token": {
+                                            "type": "string"
+                                        },
+                                        "token_type": {
+                                            "type": "string"
+                                        },
+                                        "not-before-policy": {
+                                            "type": "number"
+                                        },
+                                        "session_state": {
+                                            "type": "string"
+                                        },
+                                        "scope": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "servers": [
+                    {
+                        "url": "https://orgassomakerify.debrej.fr/auth",
+                        "description": "Authentication server"
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Activity": {
+                "description": "An activity in Project A",
+                "required": [
+                    "name",
+                    " startDate",
+                    "endDate"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "startDate": {
+                        "type": "string"
+                    },
+                    "endDate": {
+                        "type": "string"
+                    },
+                    "contractorName": {
+                        "description": "Contractor name for reference",
+                        "type": "string"
+                    },
+                    "contractorPhone": {
+                        "description": "Contractor phone number for reference",
+                        "type": "string"
+                    },
+                    "contractorMail": {
+                        "description": "Contractor email for reference",
+                        "type": "string"
+                    },
+                    "contractorComment": {
+                        "description": "Contractor comment for reference",
+                        "type": "string"
+                    },
+                    "contractorPresentOnEvent": {
+                        "description": "If contractor is present",
+                        "type": "boolean"
+                    },
+                    "supervisorId": {
+                        "description": "User id for the supervisor of the activity",
+                        "type": "number"
+                    },
+                    "eventId": {
+                        "description": "Event id for the activity",
+                        "type": "number"
+                    }
+                },
+                "example": {
+                    "id": 1,
+                    "name": "Ramener le fromage à la maison",
+                    "description": "on a acheté bcp bcp (bcp) de fromage et on doit le stocker dans le frigos",
+                    "startDate": "2019-05-11T10:00:00.000Z",
+                    "endDate": "2019-05-11T16:00:00.000Z",
+                    "createdAt": "2020-12-28T22:28:41.000Z",
+                    "updatedAt": "2020-12-28T22:28:41.000Z",
+                    "supervisorId": 2,
+                    "eventId": 1
+                },
+                "x-last-modified": 1609194769246
+            },
+            "Comment": {
+                "description": "A comment in Project A",
+                "required": [
+                    "content",
+                    "date",
+                    "userId"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "content": {
+                        "type": "string"
+                    },
+                    "date": {
+                        "type": "string"
+                    },
+                    "userId": {
+                        "type": "number"
+                    },
+                    "activityId": {
+                        "type": "number"
+                    },
+                    "taskId": {
+                        "type": "number"
+                    }
+                },
+                "example": {
+                    "id": 3,
+                    "content": "Ouais, rangez-moi tout ça avant que je ne parte dans le privé",
+                    "date": "2019-05-17T07:17:56.000Z",
+                    "userId": 1,
+                    "activityId": 2
+                },
+                "x-last-modified": 1609196230605
+            },
+            "Equipment": {
+                "description": "An equipment in Project A",
+                "required": [
+                    "name",
+                    "quantity",
+                    "equipmentTypeId"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "quantity": {
+                        "type": "number"
+                    },
+                    "equipmentTypeId": {
+                        "type": "number"
+                    },
+                    "pickupLocation": {
+                        "description": "Location id where to pickup the equipment",
+                        "type": "number"
+                    },
+                    "dropLocation": {
+                        "description": "Location id where to drop the equipment",
+                        "type": "number"
+                    }
+                },
+                "example": {
+                    "id": 1,
+                    "name": "12m3",
+                    "description": "un bien beau camtar",
+                    "quantity": 1,
+                    "equipmentTypeId": 1,
+                    "pickupLocation": 1,
+                    "dropLocation": 3
+                },
+                "x-last-modified": 1609195468985
+            },
+            "EquipmentType": {
+                "description": "An equipment type in Project A",
+                "required": [
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "id": 1,
+                    "name": "Véhicule"
+                },
+                "x-last-modified": 1609197699654
+            },
+            "Event": {
+                "description": "An event in Project A",
+                "required": [
+                    "name",
+                    "startDate",
+                    "endDate"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "A text describing the event, can be up to 65565 characters",
+                        "type": "string"
+                    },
+                    "startDate": {
+                        "description": "The starting datetime of the event",
+                        "type": "string"
+                    },
+                    "endDate": {
+                        "description": "The ending datetime of the event",
+                        "type": "string"
+                    },
+                    "logoUrl": {
+                        "description": "The url of the logo picture",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "id": 1,
+                    "name": "24h de l'INSA",
+                    "description": "le festival le plus charismatique de France",
+                    "startDate": "2019-05-17T18:00:00.000Z",
+                    "endDate": "2019-05-19T21:30:00.000Z",
+                    "logoUrl": "eventLogoDefault.png"
+                },
+                "x-last-modified": 1606815449905
+            },
+            "Location": {
+                "description": "A location in Project A",
+                "required": [
+                    "name",
+                    "gpsLong",
+                    "gpsLat"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "A description for more details on a location, can be up to 65565 characters",
+                        "type": "string"
+                    },
+                    "gpsLong": {
+                        "description": "The longitude of a location",
+                        "type": "string"
+                    },
+                    "gpsLat": {
+                        "description": "The latitude of a location",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "id": 1,
+                    "name": "Bar AIP",
+                    "description": "c'est le bar à coté de l'AIP",
+                    "gpsLong": "4.876851",
+                    "gpsLat": "45.783367"
+                },
+                "x-last-modified": 1606815481257
+            },
+            "Notification": {
+                "description": "A notification in Project A",
+                "required": [
+                    "content",
+                    "status"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "content": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "is read or unread",
+                        "type": "string"
+                    },
+                    "userId": {
+                        "type": "number"
+                    },
+                    "teamId": {
+                        "type": "number"
+                    }
+                },
+                "example": {
+                    "id": 1,
+                    "content": "Vous avez un nouveau message.",
+                    "status": "unread",
+                    "userId": 3
+                },
+                "x-last-modified": 1609196284376
+            },
+            "Shift": {
+                "description": "A shift in Project A",
+                "required": [
+                    "startDate",
+                    "endDate",
+                    "charisma",
+                    "shiftCategoryId"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "startDate": {
+                        "type": "string"
+                    },
+                    "endDate": {
+                        "type": "string"
+                    },
+                    "charisma": {
+                        "description": "A number representing the harshness of the shift",
+                        "type": "number"
+                    },
+                    "shiftCategoryId": {
+                        "type": "number"
+                    }
+                },
+                "example": {
+                    "id": 1,
+                    "startDate": "2019-05-19T10:00:00.000Z",
+                    "endDate": "2019-05-19T12:00:00.000Z",
+                    "charisma": 15,
+                    "shiftCategoryId": 1
+                },
+                "x-last-modified": 1609196085310
+            },
+            "ShiftCategory": {
+                "description": "A shift category in Project A",
+                "required": [
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "id": 1,
+                    "name": "c'est le rush"
+                },
+                "x-last-modified": 1609197626378
+            },
+            "Specialty": {
+                "description": "A specialty in Project A",
+                "required": [
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "year": {
+                        "type": "number"
+                    }
+                },
+                "example": {
+                    "id": 1,
+                    "name": "TC",
+                    "year": 3
+                },
+                "x-last-modified": 1606815490418
+            },
+            "Task": {
+                "description": "A task in Project A",
+                "required": [
+                    "name",
+                    "startDate",
+                    "endDate",
+                    "supervisorId",
+                    "locationId"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "startDate": {
+                        "type": "string"
+                    },
+                    "endDate": {
+                        "type": "string"
+                    },
+                    "supervisorId": {
+                        "type": "number"
+                    },
+                    "teamId": {
+                        "type": "number"
+                    },
+                    "locationId": {
+                        "type": "number"
+                    },
+                    "activityId": {
+                        "type": "number"
+                    }
+                },
+                "example": {
+                    "id": 1,
+                    "name": "Stocker le clackos",
+                    "description": "on prend la liste de course et on achete ce qu\"il y a marqué",
+                    "startDate": "2019-05-11T10:00:00.000Z",
+                    "endDate": "2019-05-11T12:00:00.000Z",
+                    "supervisorId": 2,
+                    "teamId": 2,
+                    "locationId": 2,
+                    "activityId": 1
+                },
+                "x-last-modified": 1609195913890
+            },
+            "Team": {
+                "description": "A team of user in Project A",
+                "required": [
+                    "name",
+                    "confidenceLevel",
+                    "priority",
+                    "color"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "confidenceLevel": {
+                        "type": "number"
+                    },
+                    "priority": {
+                        "type": "number"
+                    },
+                    "color": {
+                        "type": "string"
+                    },
+                    "supervisorId": {
+                        "type": "number"
+                    }
+                },
+                "example": {
+                    "id": 1,
+                    "name": "INSA",
+                    "confidenceLevel": 0,
+                    "priority": 10,
+                    "color": "#888888",
+                    "supervisorId": 1
+                },
+                "x-last-modified": 1609195669710
+            },
+            "User": {
+                "description": "A user in Project A",
+                "required": [
+                    "fisrtName",
+                    "lastName",
+                    "email",
+                    "alcoholicBeverageConsumption",
+                    "foodAndBeverageConsumption",
+                    "balance"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "firstName": {
+                        "type": "string"
+                    },
+                    "lastName": {
+                        "type": "string"
+                    },
+                    "surname": {
+                        "description": "A name by which the user goes, usually displayed between \"\"",
+                        "type": "string"
+                    },
+                    "birthday": {
+                        "type": "string"
+                    },
+                    "phoneNumber": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "licenceDate": {
+                        "type": "string"
+                    },
+                    "licenceScanUrl": {
+                        "type": "string"
+                    },
+                    "profilePicUrl": {
+                        "type": "string"
+                    },
+                    "tshirtSize": {
+                        "enum": [
+                            "XS",
+                            "S",
+                            "M",
+                            "L",
+                            "XL"
+                        ],
+                        "type": "string"
+                    },
+                    "alcoholicBeverageConsumption": {
+                        "type": "number"
+                    },
+                    "foodAndBeverageConsumption": {
+                        "type": "number"
+                    },
+                    "balance": {
+                        "type": "string"
+                    },
+                    "comment": {
+                        "description": "Any comment the user have about themself",
+                        "type": "string"
+                    },
+                    "experience": {
+                        "description": "A description of previous experiences",
+                        "type": "string"
+                    },
+                    "incapacity": {
+                        "description": "A description of what the user can't do",
+                        "type": "string"
+                    },
+                    "validityStatus": {
+                        "description": "Status if the user is validated",
+                        "type": "boolean"
+                    },
+                    "keycloakUserId": {
+                        "description": "User id on keycloak server, useful for login purposes",
+                        "type": "string"
+                    },
+                    "specialtyId": {
+                        "description": "Id of the specialty of the user",
+                        "type": "integer"
+                    }
+                },
+                "example": {
+                    "id": 5,
+                    "firstName": "Paul",
+                    "lastName": "Nicolino",
+                    "surname": "Nicolidiot",
+                    "birthday": "1998-10-15",
+                    "phoneNumber": "06 67 39 29 75",
+                    "email": "nico.paul69@gmail.com",
+                    "profilePicUrl": "fd0f1f5bbe7ba67fba0b91f2c130f18e",
+                    "tshirtSize": "M",
+                    "alcoholicBeverageConsumption": 0,
+                    "foodAndBeverageConsumption": 0,
+                    "balance": "0.00",
+                    "comment": "on est là hein",
+                    "experience": "ah tu connais hein",
+                    "incapacity": "en vrai, pas trop hein",
+                    "validityStatus": false,
+                    "keycloakUserId": "585ef149-2167-4218-8be4-cadb952602fd",
+                    "specialtyId": 1
+                },
+                "x-last-modified": 1606836605873
+            }
+        },
+        "links": {},
+        "callbacks": {},
+        "securitySchemes": {
+            "keycloak": {
+                "type": "openIdConnect",
+                "openIdConnectUrl": "https://orgassomakerify.debrej.fr/auth/realms/projectA/protocol/openid-connect/token"
+            }
+        }
+    },
+    "security": [],
+    "tags": [
+        {
+            "name": "Authentication",
+            "description": "All operations concerning authentication"
+        },
+        {
+            "name": "Activity",
+            "description": "Activity",
+            "x-last-modified": 1609196637234
+        },
+        {
+            "name": "Comment",
+            "description": "Comment",
+            "x-last-modified": 1609196681070
+        },
+        {
+            "name": "Equipment",
+            "description": "Equipment",
+            "x-last-modified": 1609196644545
+        },
+        {
+            "name": "Equipment Type",
+            "description": "Equipment Type",
+            "x-last-modified": 1609196650153
+        },
+        {
+            "name": "Event",
+            "description": "All operations regarding events",
+            "x-last-modified": 1606503627644
+        },
+        {
+            "name": "Location",
+            "description": "All operations regarding locations",
+            "x-last-modified": 1606503653224
+        },
+        {
+            "name": "Notification",
+            "description": "Notification",
+            "x-last-modified": 1609196704243
+        },
+        {
+            "name": "Shift",
+            "description": "Shift",
+            "x-last-modified": 1609196654426
+        },
+        {
+            "name": "Shift Category",
+            "description": "Shift Category",
+            "x-last-modified": 1609196658526
+        },
+        {
+            "name": "Specialty",
+            "description": "All operations regarding specialties",
+            "x-last-modified": 1606464063693
+        },
+        {
+            "name": "Task",
+            "description": "Task",
+            "x-last-modified": 1609196639689
+        },
+        {
+            "name": "Team",
+            "description": "Team",
+            "x-last-modified": 1609196720276
+        },
+        {
+            "name": "User",
+            "description": "All operations regarding users",
+            "x-last-modified": 1606833642544
+        }
+    ],
+    "externalDocs": {
+        "description": "Documentation for project A",
+        "url": "https://orgassomakerify.debrej.fr/auth"
+    }
+}

@@ -24,8 +24,8 @@ Nom | Type
 --- | ---
 <Name>content</Name>  <Required /> | text("medium") 
 <Name>status</Name>  <Required /> | enum("unread", "read") <DefaultValue>unread</DefaultValue>
-<Name>user_id</Name> <ForeignKey to="user" label="Utilisateur" /> | integer
-<Name>team_id</Name> <ForeignKey to="team" label="Equipe" /> | integer
+<Name>userId</Name> <ForeignKey to="user" label="Utilisateur" /> | integer
+<Name>teamId</Name> <ForeignKey to="team" label="Equipe" /> | integer
 
 ### Exemple de réponse
 
@@ -36,7 +36,7 @@ Nom | Type
         "status": "unread",
         "createdAt": "2021-03-03T21:59:21.000Z",
         "updatedAt": "2021-03-03T21:59:21.000Z",
-        "user_id": 3,
-        "team_id": null
+        "userId": 3,
+        "teamId": null
     }
 ```

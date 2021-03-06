@@ -22,51 +22,51 @@ qui peut modifier l'entièreté d'Overbookd.
 
 Nom | Type
 --- | ---
-<Name>first_name</Name>  <Required /> | string 
-<Name>last_name</Name>  <Required /> | string 
+<Name>firstName</Name>  <Required /> | string 
+<Name>lastName</Name>  <Required /> | string 
 <Name>surname</Name>   | string 
 <Name>birthday</Name>   | dateonly 
-<Name>phone_number</Name>   | string(15) 
+<Name>phoneNumber</Name>   | string(15) 
 <Name>email</Name>  <Required /> | string 
-<Name>licence_date</Name>   | date 
-<Name>licence_scan_url</Name>   | string 
-<Name>profile_pic_url</Name>   | string <DefaultValue>images/default_pic_url.jpg</DefaultValue>
-<Name>tshirt_size</Name>   | enum("xs", "s", "m", "l", "xl") 
-<Name>alcoholic_beverage_consumption</Name>  <Required /> | integer <DefaultValue>0</DefaultValue>
-<Name>food_and_beverage_consumption</Name>  <Required /> | integer <DefaultValue>0</DefaultValue>
+<Name>licenceDate</Name>   | date 
+<Name>licenceScanUrl</Name>   | string 
+<Name>profilePicUrl</Name>   | string <DefaultValue>images/defaultPicUrl.jpg</DefaultValue>
+<Name>tshirtSize</Name>   | enum("xs", "s", "m", "l", "xl") 
+<Name>alcoholicBeverageConsumption</Name>  <Required /> | integer <DefaultValue>0</DefaultValue>
+<Name>foodAndBeverageConsumption</Name>  <Required /> | integer <DefaultValue>0</DefaultValue>
 <Name>balance</Name>  <Required /> | decimal(6, 2) <DefaultValue>0</DefaultValue>
 <Name>comment</Name>   | text("medium") 
 <Name>experience</Name>   | text("medium") 
 <Name>incapacity</Name>   | text("medium") 
-<Name>validity_status</Name>  <Required /> | boolean <DefaultValue>false</DefaultValue>
-<Name>keycloak_user_id</Name>  <Required /> | string <DefaultValue>null</DefaultValue>
-<Name>specialty_id</Name> <Required /> <ForeignKey to="specialty" label="Spécialité" /> | integer
+<Name>validityStatus</Name>  <Required /> | boolean <DefaultValue>false</DefaultValue>
+<Name>keycloakUserId</Name>  <Required /> | string <DefaultValue>null</DefaultValue>
+<Name>specialtyId</Name> <Required /> <ForeignKey to="specialty" label="Spécialité" /> | integer
 
 ### Exemple de réponse
 
 ```json
 {
   "id": 1,
-  "first_name": "Phyllis",
-  "last_name": "Dejesus",
+  "firstName": "Phyllis",
+  "lastName": "Dejesus",
   "surname": "Bass",
   "birthday": "1998-02-17",
-  "phone_number": "08 34 50 43 52",
+  "phoneNumber": "08 34 50 43 52",
   "email": "phyllis.dejesus@cosmetex.us",
-  "licence_date": "2020-05-01T17:32:18.000Z",
-  "licence_scan_url": null,
-  "profile_pic_url": null,
-  "tshirt_size": "S",
-  "alcoholic_beverage_consumption": 2,
-  "food_and_beverage_consumption": 4,
+  "licenceDate": "2020-05-01T17:32:18.000Z",
+  "licenceScanUrl": null,
+  "profilePicUrl": null,
+  "tshirtSize": "S",
+  "alcoholicBeverageConsumption": 2,
+  "foodAndBeverageConsumption": 4,
   "balance": "17.28",
   "comment": null,
   "experience": null,
   "incapacity": null,
-  "validity_status": false,
-  "keycloak_user_id": "null",
+  "validityStatus": false,
+  "keycloakUserId": "null",
   "createdAt": "2021-03-03T21:59:21.000Z",
   "updatedAt": "2021-03-03T21:59:21.000Z",
-  "specialty_id": 1
+  "specialtyId": 1
 }
 ```

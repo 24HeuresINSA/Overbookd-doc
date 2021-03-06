@@ -1,5 +1,5 @@
 ---
-id: using_api
+id: usingApi
 title: Utiliser l'API
 ---
 
